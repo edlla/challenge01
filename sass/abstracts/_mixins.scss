@@ -1,0 +1,9 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+        @media (max-width: 70em) {@content};
+    }
+
+    @if $breakpoint == mob {
+        @media (max-width: 47.5em) {@content};
+    }
+}

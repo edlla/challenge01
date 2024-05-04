@@ -1,0 +1,133 @@
+body {
+//  background-color: var(--color-grey-bg);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: 100vh;
+ 
+}
+
+.testimonial {    
+    max-width: 114rem;
+    padding: 3rem;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+
+    @include respond(tab-port) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(mob) {
+        grid-template-columns: 1fr;
+    }
+
+    &__card {
+        border-radius: 8px;
+        padding: 2.5rem 2rem;
+        box-shadow: var(--shadow);
+
+        &--01,
+        &--02,
+        &--04 {
+            color: var(--color-white);
+        }
+
+       &--01 {
+        grid-column: 1 / 3;
+        position: relative;
+        background-color: var(--color-bg-01);
+
+        @include respond(tab-port) {
+            grid-column: 1 / 2;
+        }
+
+        &::before {
+            content: "";
+            width: 4rem;
+            height: 4rem;
+            background-color: var(--color-white);
+            mask-image: url(../media/images/bg-pattern-quotation.svg);
+            mask-size: cover;
+            position: absolute;
+            top: 2rem;
+            right: 5rem;
+
+            @include respond(mob) {
+                right: 3rem;
+            }
+        }
+
+       }
+
+       &--02 {
+        background-color: var(--color-bg-02);
+
+        @include respond(tab-port) {
+            grid-column: 2 / 3;
+        }
+       }
+       
+       &--03 {
+        grid-column: 1 / 2;
+       }
+
+       &--04 {
+        grid-column: 2 / span 2;
+
+        @include respond(tab-port) {
+            grid-column: 2 / 3;
+        }
+
+        background-color: var(--color-black);
+       }
+
+       &--05 {
+        grid-column: 4 / 5;
+        grid-row: 1 / span 2;
+
+        @include respond(tab-port) {
+            grid-column: 1 / 3;
+            grid-row: 3 / 4;
+        }
+
+        @include respond(mob) {
+            grid-row: 5 / 6;
+        }
+       }
+
+       &--01,
+       &--02,
+       &--03,
+       &--04,
+       &--05 {
+        @include respond(mob) {
+            grid-column: 1 / 2;
+        }
+       }
+    }
+
+    &__meta {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        gap: 2rem;
+        
+        align-items: center;
+
+        img {
+            border-radius: 50%;
+        }
+
+        .username,
+        .status {
+            display: block;
+            line-height: 1.2;
+        }
+    }
+
+    &__text{
+        font-style: italic;
+        margin-bottom: 1.2rem;
+    }
+}
